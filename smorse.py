@@ -14,5 +14,11 @@ def smorse(strToMorse):
         morsed += data[ord(letter) - 97]
     return morsed
 
-userPut = input("What string would you like to smorse: ")
-print(smorse(userPut))
+def file_smorse(fileName):
+    with open(fileName) as f:
+        data = f.read().splitlines()
+        morsed = []
+        for line in data:
+            morsed.append(smorse(line))
+    return morsed
+
