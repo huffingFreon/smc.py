@@ -1,11 +1,15 @@
 #!/usr/bin/env python
 
-def smorse_dict(fileName):
+def smorse_ray(fileName):
     with open(fileName) as f:
-        data = [x.split() for x in f]
-    print(data)
+        data = f.readline().split() 
+    return data
 
 def smorse(strToMorse):
-    smorse_dict('morse.txt')
+    data = smorse_ray('morse.txt')
+    morsed = ""
+    for letter in strToMorse:
+        morsed += data[ord(letter) - 97]
+    return morsed
 
-smorse(2)
+print(smorse("sos"))
