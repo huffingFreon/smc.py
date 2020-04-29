@@ -33,9 +33,31 @@ def number_of_occurrences(dataList):
             morseDict[item] += 1
     return morseDict
 
+# Returns the word which translates to have fifteen sequential dashes
+def sequential_dashes(dataList):
+    lineCount = -1
+    lineNumber = 0
+    fifteenDashes = "---------------"
+    for item in dataList:
+        lineCount += 1
+        if item.count(fifteenDashes) == 1:
+            lineNumber = lineCount
+    with open('enable1.txt') as f:
+        data = f.read().splitlines()
+    return data[lineNumber]
+
+'''
 enableDict = number_of_occurrences(file_smorse('enable1.txt'))
 
 # Bonus 1: finding the only sequence that is the code for 13 different words
 for strMorse, occ in enableDict.items():
     if occ == 13:
         print(strMorse)
+'''
+
+'''
+# Bonus 2: finding the only word that contains 15 sequential dashes when translated
+print(sequential_dashes(file_smorse('enable1.txt')))
+'''
+
+
