@@ -47,25 +47,24 @@ def sequential_dashes(dataList):
     return data[lineNumber]
 
 # Returns the words that are 21 characters long and have the same number of . and - when translated
-def balanced():
+def find_balanced(fileName, length):
     blackjack = []
     balanced = []
-    with open('enable1.txt') as f:
+    with open(fileName) as f:
         data = f.read().splitlines()
         for line in data:
-            if len(line) == 21:
+            if len(line) == length:
                 blackjack.append(line)
-                
-        for word in blackjack:
-            smorsed = smorse(word)
-            if smorsed.count(".") == smorsed.count("-"):
-                balanced.append(word)
+    for word in blackjack:
+        smorsed = smorse(word)
+        if smorsed.count(".") == smorsed.count("-"):
+            balanced.append(word)
     return balanced
 
 '''
+# Bonus 1: finding the only sequence that is the code for 13 different words
 enableDict = number_of_occurrences(file_smorse('enable1.txt'))
 
-# Bonus 1: finding the only sequence that is the code for 13 different words
 for strMorse, occ in enableDict.items():
     if occ == 13:
         print(strMorse)
@@ -76,9 +75,7 @@ for strMorse, occ in enableDict.items():
 print(sequential_dashes(file_smorse('enable1.txt')))
 '''
 
-'''
 # Bonus 3: finding the two words that are 21 characters long and contain the same number of . and - when translated
-print(balanced())
-'''
+print(find_balanced('enable1.txt', 21))
 
 
