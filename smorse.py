@@ -46,7 +46,7 @@ def sequential_dashes(dataList):
         data = f.read().splitlines()
     return data[lineNumber]
 
-# Returns the words that are 21 characters long and have the same number of . and - when translated
+# Returns the words in a file of a specified length that have the same number of . and - when translated
 def find_balanced(fileName, length):
     blackjack = []
     balanced = []
