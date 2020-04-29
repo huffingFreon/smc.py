@@ -23,7 +23,7 @@ def file_smorse(fileName):
             morsed.append(smorse(line))
     return morsed
 
-# Returns a dictionary with each unique smorsed string as a key and the value being number of occurrences
+# Returns a dictionary with each unique sequence as a key and the value being number of occurrences
 def number_of_occurrences(dataList):
     morseDict = {}
     for item in dataList:
@@ -33,4 +33,9 @@ def number_of_occurrences(dataList):
             morseDict[item] += 1
     return morseDict
 
-print(number_of_occurrences(file_smorse('tiny.txt')))
+enableDict = number_of_occurrences(file_smorse('enable1.txt'))
+
+# Bonus 1: finding the only sequence that is the code for 13 different words
+for strMorse, occ in enableDict.items():
+    if occ == 13:
+        print(strMorse)
