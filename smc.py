@@ -14,4 +14,5 @@ def smorse(strToMorse):
         morsed += data[ord(letter) - 97]
     return morsed
 
-print(smorse("sos"))
+userPut = input("What string would you like to smorse: ")
+print(smorse(userPut))
